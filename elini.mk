@@ -119,7 +119,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_LOCALES += mdpi
 
-$(call inherit-product, build/target/product/full.mk)
+#$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 

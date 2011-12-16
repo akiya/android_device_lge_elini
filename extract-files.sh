@@ -136,6 +136,9 @@ adb pull /system/lib/libqcomm_omx.so ../../../vendor/$MANUFACTURER/$DEVICE/propr
 # Bluetooth
 adb pull /system/bin/BCM4325D1_004.002.004.0262.0279.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/firmware
 
+# Emoji
+adb pull /system/lib/libemoji_docomo.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2011 The CyanogenMod Project
 #
@@ -282,6 +285,10 @@ PRODUCT_COPY_FILES += \\
 # Bluetooth
 PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/etc/firmware/BCM4325D1_004.002.004.0262.0279.hcd:system/etc/firmware/BCM4325D1_004.002.004.0262.0279.hcd \\
+
+# Emoji
+PRODUCT_COPY_FILES += \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libemoji_docomo.so:system/lib/libemoji_docomo.so \\
 
 EOF
 

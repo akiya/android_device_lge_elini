@@ -1,3 +1,4 @@
+
 #
 # system.prop for elini
 #
@@ -87,3 +88,8 @@ ro.media.enc.jpeg.quality=100,90,80
 # Enabed EONS feature
 persist.cust.tel.eons=1
 
+# Emoji
+ro.config.libemoji=libemoji_docomo.so
+
+# VM heap size
+persist.sys.vm.heapsize=24m
