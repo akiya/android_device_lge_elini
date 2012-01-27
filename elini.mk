@@ -88,6 +88,10 @@ PRODUCT_COPY_FILES += \
     device/lge/elini/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/lge/elini/files/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
 
+# Cifs
+PRODUCT_COPY_FILES += \
+    device/lge/elini/prebuilt/cifs.ko:system/lib/modules/cifs.ko \
+
 # Device permissions
 PRODUCT_COPY_FILES += \
     device/lge/elini/files/etc/permissions/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
