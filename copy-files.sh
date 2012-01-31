@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+SRC=~/l04c
+
 DEVICE=elini
 MANUFACTURER=lge
 
@@ -23,123 +25,149 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/wl
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/firmware
 
-# 2D
-adb pull /system/lib/hw/gralloc.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/hw
-adb pull /system/lib/hw/gralloc.elini.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/hw
-adb pull /system/lib/liblgosp-hal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+DIRS="
+lib/egl
+lib/hw
+bin
+etc/wl
+etc/firmware
+"
 
-# Sensors
-adb pull /system/lib/hw/sensors.elini.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/hw
-adb pull /system/lib/hw/lights.elini.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/hw
-adb pull /system/bin/ami304d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
+for DIR in $DIRS; do
+	mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/$DIR
+done
 
-# 3D
-adb pull /system/lib/egl/egl.cfg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/egl
-adb pull /system/lib/egl/libEGL_adreno200.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/egl
-adb pull /system/lib/egl/libGLESv1_CM_adreno200.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/egl
-adb pull /system/lib/egl/libGLESv2_adreno200.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/egl
-adb pull /system/lib/egl/libq3dtools_adreno200.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib/egl
-adb pull /system/lib/libgsl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/etc/firmware/yamato_pfp.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/firmware
-adb pull /system/etc/firmware/yamato_pm4.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/firmware
 
-# Camera
-#adb pull /system/lib/liboemcamera.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libmmipl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libmmjpeg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+FILES="
+#2D
+lib/hw/gralloc.default.so
+lib/hw/gralloc.elini.so
+lib/liblgosp-hal.so
 
-# Wifi
-adb pull /system/etc/wl/nvram.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/wl
-adb pull /system/etc/wl/rtecdc.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/wl
-adb pull /system/etc/wl/rtecdc-apsta.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/wl
-adb pull /system/etc/wl/rtecdc-mfgtest.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/wl
+#Sensors
+lib/hw/sensors.elini.so
+lib/hw/lights.elini.so
+bin/ami304d
 
-# Audio
-adb pull /system/lib/liba2dp.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libaudioeq.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+#3D
+lib/egl/egl.cfg
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/libgsl.so
+etc/firmware/yamato_pfp.fw
+etc/firmware/yamato_pm4.fw
 
-# LGE services
-adb pull /system/bin/qmuxd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
+#Camera
+#lib/liboemcamera.so
+lib/libmmipl.so
+lib/libmmjpeg.so
 
-# rmt_storage
-adb pull /system/bin/rmt_storage ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
+#Wifi
+etc/wl/nvram.txt
+etc/wl/rtecdc.bin
+etc/wl/rtecdc-apsta.bin
+etc/wl/rtecdc-mfgtest.bin
 
-# port-bridge
-adb pull /system/bin/port-bridge ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
+#Audio
+lib/liba2dp.so
+lib/libaudioeq.so
 
-# wipeirface
-adb pull /system/bin/wiperiface ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
+#LGEservices
+bin/qmuxd
 
-# Touchscreen firmware updater
-adb pull /system/bin/tsdown ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
-adb pull /system/etc/MELFAS_FIRM.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc
+#rmt_storage
+bin/rmt_storage
 
-# netmgr
-adb pull /system/bin/netmgrd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
-adb pull /system/lib/libdsutils.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libnetmgr.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+#port-bridge
+bin/port-bridge
 
-# RIL
-adb pull /system/lib/libril-qc-1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/liboncrpc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libdsm.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libqueue.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libdiag.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libauth.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libcm.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libnv.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libpbmlib.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libwms.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libwmsts.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libmmgsdilib.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libgsdi_exp.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libgstk_exp.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libril-qcril-hook-oem.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/liboem_rapi.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libsnd.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libqmi.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libdll.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/liblgeat.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/liblgdrm.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/liblgdrmwbxml.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/liblgerft.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libbcmwl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libdss.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin
-adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libloc-rpc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libloc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libcommondefs.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+#wipeirface
+bin/wiperiface
 
-# OMX
-adb pull /system/lib/libmm-adspsvc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAacDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAacEnc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAdpcmDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAmrDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAmrEnc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAmrRtpDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxAmrwbDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxEvrcDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxEvrcEnc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxH264Dec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxMp3Dec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxMpeg4Dec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxQcelp13Enc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxQcelpDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxVidEnc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxWmaDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxWmvDec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libOmxCore.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
-adb pull /system/lib/libqcomm_omx.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+#Touchscreen
+bin/tsdown
+etc/MELFAS_FIRM.bin
+
+#netmgr
+bin/netmgrd
+lib/libdsutils.so
+lib/libnetmgr.so
+
+#RIL
+lib/libril-qc-1.so
+lib/liboncrpc.so
+lib/libdsm.so
+lib/libqueue.so
+lib/libdiag.so
+lib/libauth.so
+lib/libcm.so
+lib/libnv.so
+lib/libpbmlib.so
+lib/libwms.so
+lib/libwmsts.so
+lib/libmmgsdilib.so
+lib/libgsdi_exp.so
+lib/libgstk_exp.so
+lib/libril-qcril-hook-oem.so
+lib/liboem_rapi.so
+lib/libsnd.so
+lib/libqmi.so
+lib/libdll.so
+lib/liblgeat.so
+lib/liblgdrm.so
+lib/liblgdrmwbxml.so
+lib/liblgerft.so
+lib/libbcmwl.so
+lib/libdss.so
+bin/rild
+lib/libril.so
+lib/libloc-rpc.so
+lib/libloc.so
+lib/libcommondefs.so
+
+#OMX
+lib/libmm-adspsvc.so
+lib/libOmxAacDec.so
+lib/libOmxAacEnc.so
+lib/libOmxAdpcmDec.so
+lib/libOmxAmrDec.so
+lib/libOmxAmrEnc.so
+lib/libOmxAmrRtpDec.so
+lib/libOmxAmrwbDec.so
+lib/libOmxEvrcDec.so
+lib/libOmxEvrcEnc.so
+lib/libOmxH264Dec.so
+lib/libOmxMp3Dec.so
+lib/libOmxMpeg4Dec.so
+lib/libOmxQcelp13Enc.so
+lib/libOmxQcelpDec.so
+lib/libOmxVidEnc.so
+lib/libOmxWmaDec.so
+lib/libOmxWmvDec.so
+lib/libOmxCore.so
+lib/libqcomm_omx.so
+
+#Emoji
+lib/libemoji_docomo.so
+"
+
+
+for FILE in $FILES; do
+	if ! expr "$FILE" : "^#" > /dev/null; then
+#		adb pull system/$FILE ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/$FILE
+		cp $SRC/system/$FILE ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/$FILE
+	fi
+done
 
 # Bluetooth
-adb pull /system/bin/BCM4325D1_004.002.004.0262.0279.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/firmware
+cp $SRC/system/bin/BCM4325D1_004.002.004.0262.0279.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/etc/firmware
 
-# Emoji
-adb pull /system/lib/libemoji_docomo.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib
+chmod 755 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin/*
 
-(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/$DEVICE-vendor-blobs.mk
+
+(cat << EOF) | sed -e s/__MANUFACTURER__/$MANUFACTURER/g -e s/__DEVICE__/$DEVICE/g > ../../../vendor/$MANUFACTURER/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2011 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

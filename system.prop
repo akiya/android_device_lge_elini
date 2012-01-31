@@ -92,4 +92,4 @@ persist.cust.tel.eons=1
 ro.config.libemoji=libemoji_docomo.so
 
 # VM heap size
-persist.sys.vm.heapsize=24m
+persist.sys.vm.heapsize=32m
