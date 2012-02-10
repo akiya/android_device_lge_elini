@@ -5,7 +5,7 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/lge/elini/device_elini.mk)
+$(call inherit-product, device/lge/elini/full_elini.mk)
 
 PRODUCT_NAME := cm_elini
 

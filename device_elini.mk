@@ -17,14 +17,16 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/elini/overlay
 PRODUCT_LOCALES += ja_JP
 
 PRODUCT_PACKAGES += \
-    audio.primary.msm7k \
-    audio_policy.msm7k \
+    gralloc.msm7x27 \
+    copybit.msm7x27 \
+    audio.primary.msm7x27 \
+    audio_policy.msm7x27 \
     com.android.future.usb.accessory \
     FileManager \
     Gallery \
     libOmxCore \
     libOmxVidEnc \
-    lights.msm7k \
+    lights.msm7x27 \
     rzscontrol \
     screencap
 

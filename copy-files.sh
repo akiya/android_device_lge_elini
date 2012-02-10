@@ -188,15 +188,17 @@ chmod 755 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin/*
 
 # 2D
 PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gralloc.elini.so:system/lib/hw/gralloc.elini.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/liblgosp-hal.so:system/lib/liblgosp-hal.so \\
+
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gralloc.elini.so:system/lib/hw/gralloc.elini.so \\
 
 # Sensors
 PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/sensors.elini.so:system/lib/hw/sensors.elini.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/lights.elini.so:system/lib/hw/lights.elini.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/bin/ami304d:system/bin/ami304d \\
+
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/lights.elini.so:system/lib/hw/lights.elini.so \\
 
 # 3D
 PRODUCT_COPY_FILES += \\

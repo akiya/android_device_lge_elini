@@ -27,7 +27,7 @@ BOARD_USE_FROYO_LIBCAMERA := true
 
 # ARMv6-compatible processor rev 2 (v6l)
 # CPU
-TARGET_BOARD_PLATFORM := msm7k
+TARGET_BOARD_PLATFORM := msm7x27
 TARGET_ARCH_VARIANT := armv6-vfp
 TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
