@@ -17,13 +17,11 @@
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
-USE_CAMERA_STUB := false
 
 # inherit from the proprietary version
 -include vendor/lge/elini/BoardConfigVendor.mk
 
-# Camera
-BOARD_USE_FROYO_LIBCAMERA := true
+TARGET_SPECIFIC_HEADER_PATH := device/lge/elini/include
 
 # ARMv6-compatible processor rev 2 (v6l)
 # CPU
@@ -39,9 +37,13 @@ TARGET_OTA_ASSERT_DEVICE := elini
 
 # Target information
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := false
+#TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY := false
+#TARGET_NO_RECOVERY := false
+
+#Camera
+USE_CAMERA_STUB := false
+BOARD_USE_FROYO_LIBCAMERA := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -83,13 +85,13 @@ BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true
 
 # Graphics
-#USE_OPENGL_RENDERER := true
-#TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-#BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
-#TARGET_SF_NEEDS_REAL_DIMENSIONS := true
-BOARD_NO_RGBX_8888 := true
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
+TARGET_DO_NOT_SETS_CAN_DRAW := true
+TARGET_SF_NEEDS_REAL_DIMENSIONS := true
+BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 BOARD_EGL_CFG := device/lge/elini/prebuilt/egl.cfg
-BOARD_HAS_LIMITED_EGL := true
+#TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
@@ -138,4 +140,22 @@ BOARD_FM_DEVICE := bcm4329
 TARGET_PREBUILT_KERNEL := device/lge/elini/kernel
 
 
+#ICS settings
+#DISABLE_DEXPREOPT := true
+BOARD_NO_PAGE_FLIPPING := true
+COPYBIT_MSM7K := true
+BUILD_OLD_LIBCAMERA:= true
+COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_GRALLOC_BUFFERS -DMISSING_EGL_PIXEL_FORMAT_YV12
+COMMON_GLOBAL_CFLAGS += -DNO_RGBX_8888
+COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27 -DREFRESH_RATE=60
+COMMON_GLOBAL_CFLAGS += -DUSE_LGE_ALS_DUMMY -DDEBUG_CALC_FPS
 
+#TARGET_FORCE_CPU_UPLOAD := true
+BOARD_USE_SKIA_LCDTEXT := true
+#TARGET_GRALLOC_USES_ASHMEM := false
+BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
+#TARGET_USES_GENLOCK := true
+
+
+# If set ENABLE, Trebuchet Launcher hangs up...
+#USE_OPENGL_RENDERER := true

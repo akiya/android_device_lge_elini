@@ -62,6 +62,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/fonts/MTLc3m.ttf:system/fonts/MTLc3m.ttf \
 
+# IDC file
+PRODUCT_COPY_FILES += \
+    device/lge/elini/files/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc
+
 # Qwerty
 PRODUCT_COPY_FILES += \
     device/lge/elini/files/elini_keypad.kl:system/usr/keylayout/elini_keypad.kl \
@@ -135,7 +139,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.use_16bpp_alpha=1 \
     persist.sys.use_dithering=0 \
     ro.media.dec.jpeg.memcap=20000000 \
-    ro.opengles.version=65537 \
+    ro.opengles.version=131072 \
     ro.sf.lcd_density=160 \
     ro.vold.umsdirtyratio=20
 
@@ -149,6 +153,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Compcache properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.compcache.default=18
+
+# etc
+PRODUCT_PROPERTY_OVERRIDES += \
+    hwui.render_dirty_regions=false \
+    hwui.disable_vsync=true \
+    hwui.print_config=choice \
+    debug.enabletr=false \
+    ro.ril.ecclist=110,118,119
+
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/lge/elini/prebuilt/kernel
