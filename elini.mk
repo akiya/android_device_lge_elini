@@ -22,6 +22,7 @@ PRODUCT_PACKAGES += \
     libWnnEngDic \
     libWnnJpnDic \
     libwnndict \
+    CellBroadcastReceiver \
 
 #    gralloc.elini \
 
