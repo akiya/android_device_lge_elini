@@ -40,9 +40,9 @@ done
 
 FILES="
 #2D
-lib/hw/gralloc.default.so
-lib/hw/gralloc.elini.so
-lib/liblgosp-hal.so
+#lib/hw/gralloc.default.so
+#lib/hw/gralloc.elini.so
+#lib/liblgosp-hal.so
 
 #Sensors
 lib/hw/sensors.elini.so
@@ -50,14 +50,14 @@ lib/hw/lights.elini.so
 bin/ami304d
 
 #3D
-lib/egl/egl.cfg
-lib/egl/libEGL_adreno200.so
-lib/egl/libGLESv1_CM_adreno200.so
-lib/egl/libGLESv2_adreno200.so
-lib/egl/libq3dtools_adreno200.so
-lib/libgsl.so
-etc/firmware/yamato_pfp.fw
-etc/firmware/yamato_pm4.fw
+#lib/egl/egl.cfg
+#lib/egl/libEGL_adreno200.so
+#lib/egl/libGLESv1_CM_adreno200.so
+#lib/egl/libGLESv2_adreno200.so
+#lib/egl/libq3dtools_adreno200.so
+#lib/libgsl.so
+#etc/firmware/yamato_pfp.fw
+#etc/firmware/yamato_pm4.fw
 
 #Camera
 #lib/liboemcamera.so
@@ -187,9 +187,8 @@ chmod 755 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/bin/*
 # Prebuilt libraries that are needed to build open-source libraries
 
 # 2D
-PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/liblgosp-hal.so:system/lib/liblgosp-hal.so \\
-
+#PRODUCT_COPY_FILES += \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/liblgosp-hal.so:system/lib/liblgosp-hal.so \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/gralloc.elini.so:system/lib/hw/gralloc.elini.so \\
 
@@ -201,12 +200,11 @@ PRODUCT_COPY_FILES += \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/hw/lights.elini.so:system/lib/hw/lights.elini.so \\
 
 # 3D
-PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/egl/egl.cfg:system/lib/egl/egl.cfg \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libgsl.so:system/lib/libgsl.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \\
-
+#PRODUCT_COPY_FILES += \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/egl/egl.cfg:system/lib/egl/egl.cfg \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libgsl.so:system/lib/libgsl.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \\

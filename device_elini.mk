@@ -56,7 +56,22 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
- 
+
+# Graphics
+PRODUCT_COPY_FILES += \
+    device/lge/elini/files/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
+    device/lge/elini/files/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+    device/lge/elini/files/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    device/lge/elini/files/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
+    device/lge/elini/files/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    device/lge/elini/files/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    device/lge/elini/files/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    device/lge/elini/files/lib/libgsl.so:system/lib/libgsl.so \
+    device/lge/elini/files/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    device/lge/elini/files/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+    device/lge/elini/files/lib/libC2D2.so:system/lib/libC2D2.so \
+    device/lge/elini/files/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/lge/elini/files/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
 
 # Motoya Font
 PRODUCT_COPY_FILES += \
@@ -160,7 +175,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     hwui.disable_vsync=true \
     hwui.print_config=choice \
     debug.enabletr=false \
-    ro.ril.ecclist=110,118,119
+    ro.ril.ecclist=110,118,119 \
+    ro.ril.ecclist=110,118,119 \
+    ro.com.android.dateformat=yyyy-MM-dd \
+    persist.sys.timezone=Asia/Tokyo
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)

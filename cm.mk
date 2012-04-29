@@ -1,3 +1,6 @@
+# Boot animation
+TARGET_BOOTANIMATION_NAME := vertical-320x480
+
 ## Specify phone tech before including full_phone
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
@@ -10,8 +13,8 @@ $(call inherit-product, device/lge/elini/full_elini.mk)
 PRODUCT_NAME := cm_elini
 
 # Release name and versioning
-PRODUCT_RELEASE_NAME := elini-aki-$(shell date +%Y%m%d)
-PRODUCT_VERSION_DEVICE_SPECIFIC :=
+#PRODUCT_RELEASE_NAME := elini-aki-$(shell date +%Y%m%d)
+PRODUCT_VERSION_DEVICE_SPECIFIC := -aki-$(shell date +%Y%m%d)
 #-include vendor/cm/config/common_versions.mk
 
 ## Device identifier. This must come after all inclusions
