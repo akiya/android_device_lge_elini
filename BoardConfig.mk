@@ -94,17 +94,15 @@ BOARD_EGL_CFG := device/lge/elini/prebuilt/egl.cfg
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 # WiFI
+# VER_0_6_X does not search networks
+WPA_SUPPLICANT_VERSION := VER_0_5_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION      := VER_0_6_X
-#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER        := WEXT
-#BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE           := bcmdhd
+BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := wireless
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/wl/rtecdc.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 # Kernel
@@ -137,7 +135,7 @@ BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 BOARD_FM_DEVICE := bcm4329
 #BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 
-TARGET_PREBUILT_KERNEL := device/lge/elini/kernel
+TARGET_PREBUILT_KERNEL := device/lge/elini/prebuilt/kernel
 
 
 #ICS settings
@@ -147,7 +145,7 @@ COPYBIT_MSM7K := true
 BUILD_OLD_LIBCAMERA:= true
 COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_GRALLOC_BUFFERS -DMISSING_EGL_PIXEL_FORMAT_YV12
 COMMON_GLOBAL_CFLAGS += -DNO_RGBX_8888
-COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
+COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27 -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DUSE_LGE_ALS_DUMMY -DDEBUG_CALC_FPS
 COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
 

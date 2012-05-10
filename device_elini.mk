@@ -59,10 +59,8 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_COPY_FILES += \
-    device/lge/elini/files/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/lge/elini/files/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
     device/lge/elini/files/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    device/lge/elini/files/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
     device/lge/elini/files/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     device/lge/elini/files/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     device/lge/elini/files/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
@@ -73,18 +71,21 @@ PRODUCT_COPY_FILES += \
     device/lge/elini/files/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/lge/elini/files/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
 
+#    device/lge/elini/files/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
+
 # Motoya Font
 PRODUCT_COPY_FILES += \
     frameworks/base/data/fonts/MTLc3m.ttf:system/fonts/MTLc3m.ttf \
 
-# IDC file
+# Touch Panel
 PRODUCT_COPY_FILES += \
     device/lge/elini/files/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc
 
-# Qwerty
+# Keyboard
 PRODUCT_COPY_FILES += \
+    device/lge/elini/files/elini_keypad.idc:system/usr/idc/elini_keypad.idc \
     device/lge/elini/files/elini_keypad.kl:system/usr/keylayout/elini_keypad.kl \
-    device/lge/elini/files/elini_keypad.kcm.bin:system/usr/keychars/elini_keypad.kcm.bin \
+    device/lge/elini/files/elini_keypad.kcm:system/usr/keychars/elini_keypad.kcm \
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
@@ -104,6 +105,7 @@ PRODUCT_COPY_FILES += \
     device/lge/elini/prebuilt/wireless.ko:system/lib/modules/wireless.ko \
     device/lge/elini/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/lge/elini/files/etc/dhcpd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/lge/elini/prebuilt/dhcpcd:system/bin/dhcpcd \
 
 # SD Card
 PRODUCT_COPY_FILES += \
@@ -175,7 +177,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     hwui.disable_vsync=true \
     hwui.print_config=choice \
     debug.enabletr=false \
-    ro.ril.ecclist=110,118,119 \
     ro.ril.ecclist=110,118,119 \
     ro.com.android.dateformat=yyyy-MM-dd \
     persist.sys.timezone=Asia/Tokyo

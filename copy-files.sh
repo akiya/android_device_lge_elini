@@ -121,8 +121,8 @@ lib/liblgdrmwbxml.so
 lib/liblgerft.so
 lib/libbcmwl.so
 lib/libdss.so
-bin/rild
-lib/libril.so
+#bin/rild
+#lib/libril.so
 lib/libloc-rpc.so
 lib/libloc.so
 lib/libcommondefs.so
@@ -146,7 +146,7 @@ lib/libOmxQcelpDec.so
 lib/libOmxVidEnc.so
 lib/libOmxWmaDec.so
 lib/libOmxWmvDec.so
-lib/libOmxCore.so
+#lib/libOmxCore.so
 lib/libqcomm_omx.so
 
 #Emoji
@@ -282,11 +282,12 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libdss.so:system/lib/libdss.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/bin/rild:system/bin/rild \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libril.so:system/lib/libril.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libloc-rpc.so:system/lib/libloc-rpc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libloc.so:system/lib/libloc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libcommondefs.so:system/lib/libcommondefs.so \\
+
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/bin/rild:system/bin/rild \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libril.so:system/lib/libril.so \\
 
 # OMX
 PRODUCT_COPY_FILES += \\
@@ -308,8 +309,9 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libqcomm_omx.so:system/lib/libqcomm_omx.so \\
+
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \\
 
 # Bluetooth
 PRODUCT_COPY_FILES += \\

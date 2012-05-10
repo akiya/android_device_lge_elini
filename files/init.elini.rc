@@ -115,15 +115,15 @@ on boot
 	chown system radio /dev/rtc1
 	chmod 0660 radio /dev/rtc1
 
-# LGE_CHANGE_S, [jisung.yang@lge.com] 2010-04-24, <make wifi directory>  
 # WIFI
-	mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
     setprop wifi.supplicant_scan_interval 20
     setprop wifi.interface wlan0
 
 #DHCP
-    mkdir /data/misc/dhcp 0777 system system
-# LGE_CHANGE_E, [jisung.yang@lge.com] 2010-04-24, <make wifi directory> 
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
 
 
 # +++ BRCM +++
