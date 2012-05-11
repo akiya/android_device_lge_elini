@@ -19,8 +19,10 @@ PRODUCT_LOCALES += ja_JP
 PRODUCT_PACKAGES += \
     gralloc.msm7x27 \
     copybit.msm7x27 \
-    audio.primary.msm7x27 \
-    audio_policy.msm7x27 \
+    audio.a2dp.default \
+    audio.primary.elini \
+    audio_policy.elini \
+    libaudioutils \
     com.android.future.usb.accessory \
     FileManager \
     Gallery \
@@ -86,6 +88,7 @@ PRODUCT_COPY_FILES += \
     device/lge/elini/files/elini_keypad.idc:system/usr/idc/elini_keypad.idc \
     device/lge/elini/files/elini_keypad.kl:system/usr/keylayout/elini_keypad.kl \
     device/lge/elini/files/elini_keypad.kcm:system/usr/keychars/elini_keypad.kcm \
+    device/lge/elini/files/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
@@ -116,7 +119,6 @@ PRODUCT_COPY_FILES += \
     device/lge/elini/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/lge/elini/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/lge/elini/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/elini/files/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
 
 # Cifs
 PRODUCT_COPY_FILES += \
